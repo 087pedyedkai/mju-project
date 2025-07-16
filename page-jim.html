@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- <link href="./css/output.css" rel="stylesheet"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            font-family: "Prompt";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="m-8 flex">
+        <h1 class="text-3xl ">ปฏิทินการศึกษา</h1>
+    </div>
+    <div class="m-8">
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead
+                    class="w-full text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            รายการ
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            วันเริ่มต้น
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            วันสุดท้าย
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="data-output">
+
+
+                </tbody>
+            </table>
+            <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between p-5"
+                aria-label="Table navigation">
+                <span
+                    class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">แสดง
+                    <span class="font-semibold text-gray-900 dark:text-white">1-10</span> จาก <span id="output"
+                        class="font-semibold text-gray-900 dark:text-white"> </span></span>
+                <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                            id="prevBtn">ก่อนหน้า</a>
+                    </li>
+
+
+                    <li id="page-info"
+                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300  dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+
+                    </li>
+                    <!-- <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-current="page"
+                            class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                    </li> -->
+
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                            id="nextBtn">ถัดไป</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
