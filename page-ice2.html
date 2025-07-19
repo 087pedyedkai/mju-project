@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>รายวิชาที่สอน</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <h1> HEETAD </h1>
-    
+<body class="bg-gray-100 text-gray-800">
+
+  <header class="bg-blue-700 text-white py-6 shadow-md">
+    <div class="container mx-auto text-center">
+      <h1 class="text-3xl font-semibold">รายวิชาที่อาจารย์สอน</h1>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-6">
+    <div class="grid gap-6">
+      
+      <!-- Course Item -->
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-blue-500">
+        <h2 class="text-xl font-bold text-blue-700">CS101 - การเขียนโปรแกรมเบื้องต้น</h2>
+        <p class="mt-2 text-gray-700">ศึกษาพื้นฐานภาษาโปรแกรม การเขียนคำสั่ง การใช้โครงสร้างควบคุม และอัลกอริธึม</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-green-500">
+        <h2 class="text-xl font-bold text-green-700">CS202 - ระบบฐานข้อมูล</h2>
+        <p class="mt-2 text-gray-700">ศึกษาเกี่ยวกับการออกแบบฐานข้อมูล การใช้ SQL และการจัดการข้อมูล</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-purple-500">
+        <h2 class="text-xl font-bold text-purple-700">CS303 - พัฒนาเว็บแอปพลิเคชัน</h2>
+        <p class="mt-2 text-gray-700">เน้นการเขียนเว็บโดยใช้ HTML, CSS, JavaScript และการเชื่อมต่อกับ backend</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="text-center text-sm text-gray-500 py-4">
+    &copy; 2025 อาจารย์xxxx | มหาวิทยาลัยแม่โจ้
+  </footer>
+
 </body>
 </html>
