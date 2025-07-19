@@ -11,26 +11,51 @@
         href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         body {
             font-family: "Prompt";
+
+        }
+
+
+        html {
+            --s: 82px;
+            /* control the size*/
+            --c1: #dbdbdb;
+            --c2: #ffffff;
+            --c3: #eeeeee;
+
+            --_g: var(--c3) 0 120deg, #0000 0;
+            background:
+                conic-gradient(from -60deg at 50% calc(100%/3), var(--_g)),
+                conic-gradient(from 120deg at 50% calc(200%/3), var(--_g)),
+                conic-gradient(from 60deg at calc(200%/3), var(--c3) 60deg, var(--c2) 0 120deg, #0000 0),
+                conic-gradient(from 180deg at calc(100%/3), var(--c1) 60deg, var(--_g)),
+                linear-gradient(90deg, var(--c1) calc(100%/6), var(--c2) 0 50%,
+                    var(--c1) 0 calc(500%/6), var(--c2) 0);
+            background-size: calc(1.732*var(--s)) var(--s);
         }
     </style>
 </head>
 
 <body>
-    <div class="m-8 flex">
-        <h1 class="text-3xl ">ปฏิทินการศึกษา</h1>
+    <div class="m-8 text-center ">
+
+        <h1 class="text-6xl ">ปฏิทินการศึกษา</h1>
+
     </div>
     <div class="m-8">
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg" data-aos="fade-up" data-aos-duration="1500">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <!-- text-gray-700 -->
                 <thead
-                    class="w-full text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center">
+                    class="w-full text-m text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400 text-center">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             รายการ
@@ -48,10 +73,10 @@
 
                 </tbody>
             </table>
-            <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between p-5"
-                aria-label="Table navigation">
+            <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between p-3 dark:bg-gray-700 bg-white"
+                aria-label="Table navigation ">
                 <span
-                    class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">แสดง
+                    class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto  ">แสดง
                     <span class="font-semibold text-gray-900 dark:text-white">1-10</span> จาก <span id="output"
                         class="font-semibold text-gray-900 dark:text-white"> </span></span>
                 <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
@@ -66,18 +91,6 @@
                         class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300  dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
 
                     </li>
-                    <!-- <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                    </li>
-                    <li>
-                        <a href="#" aria-current="page"
-                            class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-                    </li> -->
 
                     <li>
                         <a href="#"
@@ -92,6 +105,9 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
