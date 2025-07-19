@@ -1,12 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มหาวิทยาลัยแม่โจ้ งานทะเบียน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- tailwind PlayCDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>MJU</title>
+
+    <!-- Dropdown js file -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body {
+            font-family: "Prompt";
+        }
+    </style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body>
-    <p class="text-red-500">Hello World</p>
-</body>
+
+    <body>
+        <header>
+            <!-- Navbar -->
+            <nav class="bg-white border-gray-200 dark:bg-gray-900">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+                    <a class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="https://www.mju.ac.th/th/images/mju_logo_main-resize.png" class="h-8"
+                            alt="mju logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+                    </a>
+                    <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                        <!-- <a href="tel:5541251234" class="text-sm  text-gray-500 dark:text-white hover:underline"> </a> -->
+                        <a href="page-ice1.html" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">เข้าสู่ระบบ</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="bg-green-700 dark:bg-gray-700">
+                <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                    <div class="flex items-center">
+                        <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                            <li>
+                                <a href="index.html" class="lg:text-base text-white dark:text-white hover:underline"
+                                    aria-current="page">หน้าแรก</a>
+                            </li>
+                            <li>
+                                <div x-data="{ open: false }" class="relative">
+                                    <button @click="open = !open"
+                                        class="lg:text-base flex items-center space-x-1 text-white hover:text-green-400 focus:outline-none">
+                                        <span>เพิ่มเติม</span>
+                                        <svg class="w-4 h-4 transform transition-transform duration-200"
+                                            :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Dropdown List -->
+                                    <div x-show="open" @click.away="open = false" x-transition
+                                        class="absolute z-50 mt-2 w-40 bg-white border rounded-md shadow-lg">
+                                        <a href="page-jim.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ปฏิทินการศึกษา</a>
+                                        <a href="page-thank.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ตารางเรียนนักศึกษา</a>
+                                        <a href="page-liw.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ตารางการใช้ห้อง</a>
+
+                                        <!-- ICE ICE ICE ICE ICE ICE ICE -->
+                                         
+                                        <!-- <a href="page-ice2.html"
+                                            class="block px-4 py-2 text-blue-700 hover:bg-gray-100">ตารางสอนอาจารย์</a>
+                                        <a href="page-ice3.html"
+                                            class="block px-4 py-2 text-blue-700 hover:bg-gray-100">บันทึกเกรดรายบุคคล</a>     -->
+
+                                    </div>
+                                </div>
+                    </div>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+        </header>
+
+        <div class="bg-gray-200 min-h-screen py-6 px-4">
+        <!-- container ตรงกลางสีขาว -->
+            <div class="container mx-auto bg-white rounded-lg overflow-hidden p-2 lg:p-8" data-aos="fade-up" data-aos-duration="1500">
+
+                <!-- หัวข้อข่าวสาร -->
+                <h2 class="text-xl font-bold text-center text-gray-800  mt-2 border-b pb-2 border-gray-300">
+                📰 ข่าวประชาสัมพันธ์
+                </h2>
+
+                <!-- ข่าว 1 -->
+                <div class="bg-white rounded-xl p-4 mb-6">
+                    <!-- ลิงก์ข่าว -->
+                    <p class="font-semibold text-base mb-2">
+                        1. 
+                        <a class="text-blue-700 hover:text-blue-900 transition">
+                        รักษาสภาพ/ลาพัก 
+                        <span class="text-red-600 font-bold">(ด่วนที่สุด)</span>
+                        </a>
+                    </p>
+
+                    <!-- รูปภาพข่าว -->
+                    <img 
+                        src="https://erp.mju.ac.th/openFile.aspx?id=NzE4OTA5&method=inline" 
+                        alt="ข่าวสาร" 
+                        class="w-full h-auto object-contain rounded-lg border border-gray-300"
+                    />
+
+                    <!-- วันที่ประกาศ -->
+                    <p class="text-sm text-gray-500 mt-2">
+                        ประกาศโดย - วันที่ประกาศ 
+                        <span class="text-gray-600 font-medium">26 มิถุนายน 2568</span>
+                    </p>
+                </div>
+
+                <!-- ข่าว 2 -->
+                <div class="bg-white rounded-xl p-4 mb-6">
+                    <!-- ลิงก์ข่าว -->
+                    <p class="font-semibold text-base mb-2">
+                        2. 
+                        <a class="text-blue-700 hover:text-blue-900 transition">
+                        10100214 ผษ101 เกษตรเพื่อชีวิต 
+                        <span class="text-red-600 font-bold">(ด่วนที่สุด)</span>
+                        </a>
+                    </p>
+
+                    <!-- รูปภาพข่าว -->
+                    <img 
+                        src="https://erp.mju.ac.th/openFile.aspx?id=NzE3MzI0&method=inline" 
+                        alt="ข่าวสาร" 
+                        class="w-full h-auto object-contain rounded-lg border border-gray-300"
+                    />
+
+                    <!-- วันที่ประกาศ -->
+                    <p class="text-sm text-gray-500 mt-2">
+                        ประกาศโดย - วันที่ประกาศ 
+                        <span class="text-gray-600 font-medium">19 มิถุนายน 2568</span>
+                    </p>
+                </div>
+
+                <!-- ข่าว 3 -->
+                <div class="bg-white rounded-xl p-4 mb-6">
+                    <!-- ลิงก์ข่าว -->
+                    <p class="font-semibold text-base mb-2">
+                        3. 
+                        <a class="text-blue-700 hover:text-blue-900 transition">
+                        MS Teams
+                        <span class="text-red-600 font-bold">(ด่วนที่สุด)</span>
+                        </a>
+                    </p>
+
+                    <!-- รูปภาพข่าว -->
+                    <img 
+                        src="https://erp.mju.ac.th/openFile.aspx?id=NjkyMzk4&method=inline" 
+                        alt="ข่าวสาร" 
+                        class="w-full h-auto object-contain rounded-lg border border-gray-300"
+                    />
+
+                    <!-- วันที่ประกาศ -->
+                    <p class="text-sm text-gray-500 mt-2">
+                        ประกาศโดย - วันที่ประกาศ 
+                        <span class="text-gray-600 font-medium">8 เมษายน 2568</span>
+                    </p>
+                </div>
+                <div class="flex justify-center gap-4 mb-6">
+                    <a href="" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow transition">
+                        ดูข่าวทั้งหมด
+                    </a>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <footer class="bg-gray-800 text-white py-6">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <p class="text-sm font-medium">งานทะเบียนและประมวลผล มหาวิทยาลัยแม่โจ้</p>
+                <p class="text-xs mt-1">© 2025 Maejo University. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            AOS.init();
+        </script>
+    </body>
+
 </html>
