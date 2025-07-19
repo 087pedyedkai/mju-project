@@ -25,7 +25,7 @@
   <header>
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
       <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-        <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <a class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="https://www.mju.ac.th/th/images/mju_logo_main-resize.png" class="h-8" alt="MJU Logo" />
         </a>
         <div class="flex items-center space-x-6 rtl:space-x-reverse">
@@ -69,26 +69,60 @@
 
   <!-- เนื้อหา Login -->
   <div class="flex-grow flex items-center justify-center p-6">
-    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-sm">
-      <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">เข้าสู่ระบบอาจารย์</h2>
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">เข้าสู่ระบบ</h2>
 
-      <!-- Form มีช่องให้กรอกแต่ไม่ตรวจสอบ -->
-      <form onsubmit="window.location.href='page-ice2.html'; return false;">
-        <div class="mb-4">
-          <label for="username" class="block text-sm font-medium text-gray-700">ชื่อผู้ใช้</label>
-          <input type="text" id="username" name="username"
-            class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+      <!-- ปุ่มเลือกบทบาท -->
+      <div x-data="{ role: 'teacher' }" class="mb-6">
+        <div class="flex justify-center gap-4 mb-4">
+          <button @click="role = 'teacher'" 
+            :class="role === 'teacher' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
+            class="px-4 py-2 rounded-md font-medium transition">
+            อาจารย์
+          </button>
+          <button @click="role = 'student'" 
+            :class="role === 'student' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'"
+            class="px-4 py-2 rounded-md font-medium transition">
+            นักศึกษา
+          </button>
         </div>
-        <div class="mb-6">
-          <label for="password" class="block text-sm font-medium text-gray-700">รหัสผ่าน</label>
-          <input type="password" id="password" name="password"
-            class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-        </div>
-        <button type="submit"
-          class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">เข้าสู่ระบบ</button>
-      </form>
 
-      <p class="text-center text-sm text-gray-500 mt-4">เฉพาะบุคลากรเท่านั้น</p>
+        <template x-if="role === 'teacher'">
+          <form onsubmit="window.location.href='page-ice2.html'; return false;">
+            <div class="mb-4">
+              <label for="teacher-username" class="block text-sm font-medium text-gray-700">ชื่อผู้ใช้ (อาจารย์)</label>
+              <input type="text" id="teacher-username" name="username"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <div class="mb-6">
+              <label for="teacher-password" class="block text-sm font-medium text-gray-700">รหัสผ่าน</label>
+              <input type="password" id="teacher-password" name="password"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <button type="submit"
+              class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">เข้าสู่ระบบอาจารย์</button>
+          </form>
+        </template>
+
+        <template x-if="role === 'student'">
+          <form onsubmit="window.location.href='page-ice1.html'; return false;">
+            <div class="mb-4">
+              <label for="student-username" class="block text-sm font-medium text-gray-700">รหัสนักศึกษา</label>
+              <input type="text" id="student-username" name="username"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <div class="mb-6">
+              <label for="student-password" class="block text-sm font-medium text-gray-700">รหัสผ่าน</label>
+              <input type="password" id="student-password" name="password"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <button type="submit"
+              class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">เข้าสู่ระบบนักศึกษา</button>
+          </form>
+        </template>
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-4">เฉพาะบุคลากรหรือนักศึกษาเท่านั้น</p>
     </div>
   </div>
 
