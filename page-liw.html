@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ตารางการใช้ห้อง</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+    }
+  </style>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-white text-[#1E152A]">
+<header>
+            <!-- Navbar -->
+            <nav class="bg-white border-gray-200 dark:bg-gray-900">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+                    <a class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="https://www.mju.ac.th/th/images/mju_logo_main-resize.png" class="h-8"
+                            alt="mju logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+                    </a>
+                    <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                        <!-- <a href="tel:5541251234" class="text-sm  text-gray-500 dark:text-white hover:underline"> </a> -->
+                        <a href="page-ice1.html" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">เข้าสู่ระบบ</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="bg-green-700 dark:bg-gray-700">
+                <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                    <div class="flex items-center">
+                        <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                            <li>
+                                <a href="index.html" class="lg:text-base text-white dark:text-white hover:underline"
+                                    aria-current="page">หน้าแรก</a>
+                            </li>
+                            <li>
+                                <div x-data="{ open: false }" class="relative">
+                                    <button @click="open = !open"
+                                        class="lg:text-base flex items-center space-x-1 text-white hover:text-green-400 focus:outline-none">
+                                        <span>เพิ่มเติม</span>
+                                        <svg class="w-4 h-4 transform transition-transform duration-200"
+                                            :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Dropdown List -->
+                                    <div x-show="open" @click.away="open = false" x-transition
+                                        class="absolute z-50 mt-2 w-40 bg-white border rounded-md shadow-lg">
+                                        <a href="page-jim.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ปฏิทินการศึกษา</a>
+                                        <a href="page-thank.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ตารางเรียนนักศึกษา</a>
+                                        <a href="page-liw.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ตารางการใช้ห้อง</a>
+
+                                        <!-- ICE ICE ICE ICE ICE ICE ICE -->
+                                         
+                                        <!-- <a href="page-ice2.html"
+                                            class="block px-4 py-2 text-blue-700 hover:bg-gray-100">ตารางสอนอาจารย์</a>
+                                        <a href="page-ice3.html"
+                                            class="block px-4 py-2 text-blue-700 hover:bg-gray-100">บันทึกเกรดรายบุคคล</a>     -->
+
+                                    </div>
+                                </div>
+                    </div>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+        </header>
+    
+  <div class="max-w-5xl mx-auto mt-5">
+    <h2 class="text-center text-xl sm:text-2xl font-semibold text-[#1B5E06] mb-6">ตารางการใช้ห้อง</h2>
+
+    <!-- Form Section -->
+    <div class="grid gap-4 sm:grid-cols-3 max-w-3xl mx-auto">
+      <select id="buildingSelect" class="w-full border border-[#3A2E39] rounded-md px-3 py-2">
+        <option value="">เลือกอาคาร</option>
+      </select>
+
+      <select id="roomSelect" class="hidden w-full border border-[#3A2E39] rounded-md px-3 py-2">
+        <option value="">เลือกห้อง</option>
+      </select>
+
+      <button id="showBtn" class="hidden w-full bg-[#1B5E06] text-white rounded-md px-4 py-2 hover:bg-[#4FBA77] transition">
+        แสดงตาราง
+      </button>
+    </div>
+
+    <!-- Schedule Table -->
+    <div id="scheduleContainer" class="mt-6 overflow-x-auto"></div>
+  </div>
+
+  <script>
+    const data = {
+      "คณะวิทยาศาสตร์": {
+        "Lab คอม3-4 ประเภท : ไม่กำหนด ความจุ : 120 พื้นที่ : 120": {
+          "จันทร์": {
+            "08:00": ["10301231", "(3) 1,", "L1", 2],
+            "13:00": ["10301222", "(3) 1,", "L1", 2]
+          },
+          "อังคาร": {
+            "08:00": ["10301231", "(3) 1,", "L1", 1],
+            "13:00": ["10301225", "(3) 1,", "L1", 2]
+          },
+          "พุธ": {
+            "08:00": ["10301112", "(3) 1,", "L1", 2]
+          },
+          "พฤหัสบดี": {
+            "13:00": ["10301223", "(3) 1,", "L1", 2]
+          },
+          "ศุกร์": {
+            "14:00": ["10301223", "(3) 1,", "L1", 2]
+          }
+        }
+      },
+      "อาคารสังคมศาสตร์": {
+        "ห้องเรียน 201": {
+          "พุธ": {
+            "10:00": ["20304567", "(3) 2,", "S2", 1]
+          }
+        }
+      }
+    };
+
+    const times = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"];
+    const days = ["จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์"];
+
+    const buildingSelect = document.getElementById("buildingSelect");
+    const roomSelect = document.getElementById("roomSelect");
+    const showBtn = document.getElementById("showBtn");
+    const scheduleContainer = document.getElementById("scheduleContainer");
+
+    Object.keys(data).forEach(building => {
+      const option = document.createElement("option");
+      option.value = building;
+      option.textContent = building;
+      buildingSelect.appendChild(option);
+    });
+
+    buildingSelect.addEventListener("change", () => {
+      const selectedBuilding = buildingSelect.value;
+      roomSelect.innerHTML = '<option value="">เลือกห้อง</option>';
+      scheduleContainer.innerHTML = '';
+      showBtn.classList.add("hidden");
+
+      if (selectedBuilding) {
+        roomSelect.classList.remove("hidden");
+        const rooms = Object.keys(data[selectedBuilding]);
+        rooms.forEach(room => {
+          const option = document.createElement("option");
+          option.value = room;
+          option.textContent = room;
+          roomSelect.appendChild(option);
+        });
+      } else {
+        roomSelect.classList.add("hidden");
+      }
+    });
+
+    roomSelect.addEventListener("change", () => {
+      scheduleContainer.innerHTML = '';
+      if (roomSelect.value) {
+        showBtn.classList.remove("hidden");
+      } else {
+        showBtn.classList.add("hidden");
+      }
+    });
+
+    showBtn.addEventListener("click", () => {
+      const building = buildingSelect.value;
+      const room = roomSelect.value;
+      const schedule = data[building][room];
+
+      const table = document.createElement("table");
+      table.className = "w-full border-collapse border border-gray-300 text-[0.75rem] sm:text-sm text-center";
+
+      const thead = document.createElement("thead");
+      const headRow = document.createElement("tr");
+      headRow.innerHTML = `<th class="bg-[#3A2E39] text-white px-2 py-1">Day/Time</th>`;
+      times.forEach(t => {
+        const th = document.createElement("th");
+        th.className = "bg-[#3A2E39] text-white px-2 py-1";
+        th.textContent = `${t}-${parseInt(t.split(":")[0]) + 1}:00`;
+        headRow.appendChild(th);
+      });
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement("tbody");
+      days.forEach(day => {
+        const row = document.createElement("tr");
+        const dayCell = document.createElement("td");
+        dayCell.textContent = day;
+        dayCell.className = "bg-gray-200 font-semibold px-2 py-1";
+        row.appendChild(dayCell);
+
+        for (let i = 0; i < times.length; ) {
+          const t = times[i];
+          const cls = schedule[day]?.[t];
+          if (cls) {
+            const [code, group, loc, span] = cls;
+            const td = document.createElement("td");
+            td.className = "bg-blue-200 px-1 py-2 text-xs sm:text-sm";
+            td.colSpan = span;
+            td.innerHTML = `<p class="m-0">${code}</p><p class="m-0">${group}</p><p class="m-0">${loc}</p>`;
+            row.appendChild(td);
+            i += span;
+          } else {
+            const td = document.createElement("td");
+            td.className = "border border-gray-300 px-1 py-2";
+            row.appendChild(td);
+            i++;
+          }
+        }
+
+        tbody.appendChild(row);
+      });
+
+      table.appendChild(tbody);
+      scheduleContainer.innerHTML = '';
+      scheduleContainer.appendChild(table);
+    });
+  </script>
+<footer class="bg-gray-800 text-white py-6 absolute bottom-0 w-full">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <p class="text-sm font-medium">งานทะเบียนและประมวลผล มหาวิทยาลัยแม่โจ้</p>
+    <p class="text-xs mt-1">© 2025 Maejo University. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
