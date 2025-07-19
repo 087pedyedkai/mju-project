@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตารางเรียน</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans p-4">
+           <header>
+            <!-- Navbar -->
+            <nav class="bg-white border-gray-200 dark:bg-gray-900">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+                    <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="https://www.mju.ac.th/th/images/mju_logo_main-resize.png" class="h-8"
+                            alt="Flowbite Logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+                    </a>
+                    <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                        <!-- <a href="tel:5541251234" class="text-sm  text-gray-500 dark:text-white hover:underline"> </a> -->
+                        <a href="page-ice1.html" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">เข้าสู่ระบบ</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="bg-green-700 dark:bg-gray-700">
+                <div class="max-w-screen-xl px-4 py-3 mx-auto">
+                    <div class="flex items-center">
+                        <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                            <li>
+                                <a href="index.html" class="lg:text-base text-white dark:text-white hover:underline"
+                                    aria-current="page">หน้าแรก</a>
+                            </li>
+                            <li>
+                                <div x-data="{ open: false }" class="relative">
+                                    <button @click="open = !open"
+                                        class="lg:text-base flex items-center space-x-1 text-white hover:text-green-400 focus:outline-none">
+                                        <span>เพิ่มเติม</span>
+                                        <svg class="w-4 h-4 transform transition-transform duration-200"
+                                            :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Dropdown List -->
+                                    <div x-show="open" @click.away="open = false" x-transition
+                                        class="absolute z-50 mt-2 w-40 bg-white border rounded-md shadow-lg">
+                                        <a href="page-jim.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ปฏิทินการศึกษา</a>
+                                        <a href="page-thank.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ตารางเรียนนักศึกษา</a>
+                                        <a href="page-liw.html"
+                                            class="block px-4 py-2 text-gray-700 hover:bg-gray-100">ตารางการใช้ห้อง</a>
+
+                                        <!-- ICE ICE ICE ICE ICE ICE ICE -->
+                                         
+                                        <!-- <a href="page-ice2.html"
+                                            class="block px-4 py-2 text-blue-700 hover:bg-gray-100">ตารางสอนอาจารย์</a>
+                                        <a href="page-ice3.html"
+                                            class="block px-4 py-2 text-blue-700 hover:bg-gray-100">บันทึกเกรดรายบุคคล</a>     -->
+
+                                    </div>
+                                </div>
+                    </div>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+        </header>
+  <div class="max-w-7xl mx-auto bg-white p-4 sm:p-6 rounded shadow">
+    <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-green-700 mb-2">
+      ตารางเรียนรายวิชาที่ลงทะเบียนแล้ว
+    </h1>
+    <h2 class="text-sm sm:text-base md:text-lg text-gray-700 mb-2 text-center">
+      คณะ วิทยาศาสตร์
+    </h2>
+    <h2 class="text-sm sm:text-base md:text-lg text-gray-700 mb-2 text-center">
+      หลักสูตร	วิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการคอมพิวเตอร์
+    </h2>
+    <h2 class="text-sm sm:text-base md:text-lg text-gray-700 mb-2 text-center mb-4">
+      ปีการศึกษา 1-2568 (14/07/2568 - 20/07/2568)
+    </h2>
+
+    <!-- ตาราง-->
+    <div class="overflow-x-auto">
+      <div class="grid min-w-[1000px] grid-cols-10 gap-px text-[10px] sm:text-xs md:text-sm text-center bg-gray-600 border border-gray-600 mb-4">
+        
+        <!-- หัวตาราง -->
+        <div class="bg-green-500 text-white font-semibold p-2">วัน/เวลา</div>
+        <div class="bg-green-500 text-white font-semibold p-2">8:00-9:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">9:00-10:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">10:00-11:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">11:00-12:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">12:00-13:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">13:00-14:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">14:00-15:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">15:00-16:00</div>
+        <div class="bg-green-500 text-white font-semibold p-2">16:00-17:00</div>
+
+        <!-- จันทร์ -->
+        <div class="bg-white font-medium p-2">จันทร์</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-blue-100 col-span-3 p-2">10301231<br/>คอม 3-4<br/>105</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-blue-100 col-span-2 p-2">10301222<br/>คอม 3-4<br/>105</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-white p-2"></div>
+
+        <!-- อังคาร -->
+        <div class="bg-white font-medium p-2">อังคาร</div>
+        <div class="bg-blue-100 col-span-2 p-2">10301231<br/>คอม 3-4<br/>105</div>
+        <div class="bg-blue-100 col-span-2 p-2">10700313<br/>80-501<br/>147</div>
+        <div class="relative bg-white p-2">
+          <div class="absolute inset-y-0 right-0 w-1/2 bg-blue-100"></div>
+        </div>
+        <div class="bg-blue-100 col-span-1 p-2">10301225<br/>คอม 3-4<br/>105</div>
+        <div class="relative bg-white p-2">
+          <div class="absolute inset-y-0 left-0 w-1/2 bg-blue-100"></div>
+        </div>
+        <div class="bg-blue-100 col-span-1 p-2">10301211<br/>3203<br/>141</div>
+        <div class="relative bg-white p-2">
+          <div class="absolute inset-y-0 left-0 w-1/2 bg-blue-100"></div>
+        </div>
+
+        <!-- พุธ -->
+        <div class="bg-white font-medium p-2">พุธ</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-blue-100 col-span-3 p-2">10301225<br/>คอม 3-4<br/>141</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-white p-2"></div>
+
+        <!-- พฤหัส -->
+        <div class="bg-white font-medium p-2">พฤหัส</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-blue-100 col-span-3 p-2">10301222<br/>คอม 3-4<br/>105</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-blue-100 col-span-2 p-2">10301223<br/>คอม 3-4<br/>105</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-white p-2"></div>
+
+        <!-- ศุกร์ -->
+        <div class="bg-white font-medium p-2">ศุกร์</div>
+        <div class="relative bg-white p-2">
+          <div class="absolute inset-y-0 right-0 w-1/2 bg-blue-100"></div>
+        </div>
+        <div class="bg-blue-100 col-span-1 p-2">10301211<br/>3203<br/>141</div>
+        <div class="bg-blue-100 col-span-2 p-2">10700313<br/>80-501<br/>147</div>
+        <div class="bg-white p-2"></div>
+        <div class="bg-blue-100 col-span-3 p-2">10301223<br/>คอม 3-4<br/>105</div>
+        <div class="bg-white p-2"></div>
+
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto bg-white p-4 sm:p-6 rounded shadow">
+    <h1 class="text-2xl font-bold text-center text-green-700 mb-8">
+      รายการวิชา
+    </h1>
+      <!-- รายการข้อความ -->
+      <div class="grid grid-cols-4 gap-4 text-sm sm:text-base text-gray-800 mb-1 text-center">
+        <div class="font-semibold text-green-700">รหัสวิชา</div>
+        <div class="font-semibold text-green-700">ชื่อวิชา</div>
+        <div class="font-semibold text-green-700">กลุ่ม</div>
+        <div class="font-semibold text-green-700">หน่วยกิต</div>
+      </div>
+
+      <!-- ข้อมูลวิชา -->
+      <div class="grid grid-cols-4 gap-4 text-sm sm:text-base text-gray-800 mb-2 text-center">
+        <div>10301231</div>
+        <div>เว็บเทคโนโลยี</div>
+        <div>1</div>
+        <div>3</div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 text-sm sm:text-base text-gray-800 mb-2 text-center">
+        <div>10301222</div>
+        <div>โครงสร้างข้อมูลและอัลกอริทึม</div>
+        <div>1</div>
+        <div>3</div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 text-sm sm:text-base text-gray-800 mb-2 text-center">
+        <div>10700313 </div>
+        <div>ภาษาอังกฤษเชิงวิทยาศาสตร์และนวัตกรรม</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 text-sm sm:text-base text-gray-800 mb-2 text-center">
+        <div>10301225</div>
+        <div>วิศวกรรมซอฟต์แวร์</div>
+        <div>1</div>
+        <div>3</div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 text-sm sm:text-base text-gray-800 mb-2 text-center">
+        <div>10301211</div>
+        <div>คณิตศาสตร์สำหรับวิทยาการคอมพิวเตอร์</div>
+        <div>1</div>
+        <div>3</div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 text-sm sm:text-base text-gray-800 mb-2 text-center">
+        <div>10301223</div>
+        <div>ฐานข้อมูลโครงสร้างเชิงสัมพันธ์</div>
+        <div>1</div>
+        <div>3</div>
+      </div>
+
+    </div>
+  </div>
+<footer class="bg-gray-800 text-white py-6">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <p class="text-sm font-medium">งานทะเบียนและประมวลผล มหาวิทยาลัยแม่โจ้</p>
+                <p class="text-xs mt-1">© 2025 Maejo University. All rights reserved.</p>
+            </div>
+</footer>
+</body>
+</html>
